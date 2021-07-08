@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'cube-ruby', require: 'cube'
 gem 'ffi'
 gem 'minitest', '~> 4.0'
-gem 'rake', '~> 10.0'
+gem 'rake', '~> 12.3'
 gem 'redis', '~> 3.0'
 
 # Development
