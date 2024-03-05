@@ -8,14 +8,16 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   raptor2-utils \
   && rm -rf /var/lib/apt/lists/*
 
-# The Gemfile Caching Trick
 RUN mkdir -p /srv/ontoportal/ncbo_ontology_recommender
-COPY *.gemspec Gemfile* /srv/ontoportal/ncbo_ontology_recommender/
+RUN mkdir -p /srv/ontoportal/bundle
+COPY Gemfile* *.gemspec /srv/ontoportal/ncbo_ontology_recommender/
 
 WORKDIR /srv/ontoportal/ncbo_ontology_recommender
 
+RUN gem update --system
 RUN gem install bundler
-ENV BUNDLE_PATH /bundle
+ENV BUNDLE_PATH=/srv/ontoportal/bundle
 RUN bundle install
+
 COPY . /srv/ontoportal/ncbo_ontology_recommender
 CMD ["/bin/bash"]

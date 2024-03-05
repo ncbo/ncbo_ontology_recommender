@@ -173,7 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   cube-ruby
-  faraday (~> 2.0)
+  faraday
   ffi
   goo!
   minitest (~> 4.0)

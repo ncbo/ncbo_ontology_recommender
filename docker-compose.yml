@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        RUBY_VERSION: '2.7'
+        RUBY_VERSION: '3.0'
     volumes:
       - bundle:/bundle
       - .:/srv/ontoportal/ncbo_ontology_recommender
@@ -27,7 +27,7 @@ services:
     command: "bundle exec rake test TESTOPTS='-v'"
 
   solr-ut:
-    image: ontoportal/solr-ut:0.0.2
+    image: ontoportal/solr-ut:0.1.0
 
   redis-ut:
     image: redis
