@@ -21,7 +21,7 @@ if ENV['COVERAGE'] == 'true' || ENV['CI'] == 'true'
 end
 
 # Check to make sure you want to run if not pointed at localhost
-safe_host = Regexp.new(/localhost|-ut|ncbo-dev*|ncbo-unittest*/)
+safe_host = Regexp.new(/localhost|-ut/)
 unless LinkedData.settings.goo_host.match(safe_host) &&
        LinkedData.settings.search_server_url.match(safe_host) &&
        Annotator.settings.annotator_redis_host.match(safe_host)
@@ -92,7 +92,7 @@ class RecommenderUnit < MiniTest::Unit
   # Code to run before the very first test
   def before_suites
     LinkedData::SampleData::Ontology.delete_ontologies_and_submissions
-    @@ontologies = LinkedData::SampleData::Ontology.sample_owl_ontologies
+    @@ontologies = LinkedData::SampleData::Ontology.sample_owl_ontologies(process_submission: true)
     @@sty = LinkedData::SampleData::Ontology.load_semantic_types_ontology
     annotator = Annotator::Models::NcboAnnotator.new
     annotator.init_redis_for_tests
