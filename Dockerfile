@@ -1,4 +1,4 @@
-ARG RUBY_VERSION
+ARG RUBY_VERSION=3.0
 ARG DISTRO_NAME=bullseye
 
 FROM ruby:$RUBY_VERSION-$DISTRO_NAME
@@ -8,14 +8,16 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   raptor2-utils \
   && rm -rf /var/lib/apt/lists/*
 
-# The Gemfile Caching Trick
-RUN mkdir -p /srv/ontoportal/ncbo_ontology_recommender
-COPY *.gemspec Gemfile* /srv/ontoportal/ncbo_ontology_recommender/
+ENV BUNDLE_PATH=/usr/local/bundle \
+    BUNDLE_BIN=/usr/local/bundle/bin \
+    BUNDLE_APP_CONFIG=/usr/local/bundle/config
 
-WORKDIR /srv/ontoportal/ncbo_ontology_recommender
+WORKDIR /usr/src/app
 
-RUN gem install bundler
-ENV BUNDLE_PATH /bundle
+COPY Gemfile* *.gemspec ./
+
+RUN gem update --system
 RUN bundle install
-COPY . /srv/ontoportal/ncbo_ontology_recommender
-CMD ["/bin/bash"]
+
+COPY . .
+CMD ["irb"]

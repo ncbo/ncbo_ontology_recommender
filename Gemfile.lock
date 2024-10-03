@@ -1,13 +1,14 @@
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: daea7822af9e5ca1961d6873a758735133a1b2db
-  branch: master
+  revision: 74a012eebb9433d031eb00df5abbe488cb8b4512
+  branch: develop
   specs:
     goo (0.0.2)
       addressable (~> 2.8)
       pry
       rdf (= 1.0.8)
       redis
+      request_store
       rest-client
       rsolr
       sparql-client
@@ -15,8 +16,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: 04226ac5840a328e6f906f15c769ee6ee5723102
-  branch: master
+  revision: b2731c98bfef0958fecb440c8648b7755a670895
+  branch: develop
   specs:
     ncbo_annotator (0.0.1)
       goo
@@ -26,8 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: a7ad210e846a390f203457be2459719214d142fe
-  branch: master
+  revision: 812dd78f02b77c9c6d579b0febf1c2a42d513022
+  branch: develop
   specs:
     ontologies_linked_data (0.0.1)
       activesupport
@@ -46,8 +47,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/sparql-client.git
-  revision: d418d56a6c9ff5692f925b45739a2a1c66bca851
-  branch: master
+  revision: 1657f0dd69fd4b522d3549a6848670175f5e98cc
+  branch: develop
   specs:
     sparql-client (1.0.1)
       json_pure (>= 1.4)
@@ -63,34 +64,34 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    addressable (2.8.5)
-      public_suffix (>= 2.0.2, < 6.0)
-    base64 (0.1.1)
-    bcrypt (3.1.19)
-    builder (3.2.4)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
+    bcrypt (3.1.20)
+    bigdecimal (3.1.8)
+    builder (3.3.0)
     coderay (1.1.3)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.3.4)
     connection_pool (2.4.1)
     cube-ruby (0.0.3)
-    date (3.3.3)
-    docile (1.4.0)
-    domain_name (0.5.20190701)
-      unf (>= 0.0.5, < 1.0.0)
-    faraday (2.7.11)
-      base64
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.2)
-    ffi (1.16.3)
+    date (3.3.4)
+    docile (1.4.1)
+    domain_name (0.6.20240107)
+    faraday (2.12.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      json
+      logger
+    faraday-net_http (3.3.0)
+      net-http
+    ffi (1.17.0-aarch64-linux-gnu)
     http-accept (1.7.0)
-    http-cookie (1.0.5)
+    http-cookie (1.0.7)
       domain_name (~> 0.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    json (2.6.3)
-    json_pure (2.6.3)
-    libxml-ruby (4.1.1)
-    logger (1.5.3)
+    json (2.7.2)
+    json_pure (2.7.2)
+    libxml-ruby (5.0.3)
+    logger (1.6.1)
     macaddr (1.7.2)
       systemu (~> 2.6.5)
     mail (2.8.1)
@@ -98,54 +99,61 @@ GEM
       net-imap
       net-pop
       net-smtp
-    method_source (1.0.0)
-    mime-types (3.5.1)
+    method_source (1.1.0)
+    mime-types (3.6.0)
+      logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.1003)
+    mime-types-data (3.2024.1001)
     mini_mime (1.1.5)
     minitest (4.7.5)
     multi_json (1.15.0)
+    net-http (0.4.1)
+      uri
     net-http-persistent (2.9.4)
-    net-imap (0.3.7)
+    net-imap (0.4.16)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0)
+    net-smtp (0.5.0)
       net-protocol
     netrc (0.11.0)
-    oj (3.16.1)
+    oj (3.16.6)
+      bigdecimal (>= 3.0)
+      ostruct (>= 0.2)
     omni_logger (0.1.4)
       logger
+    ostruct (0.6.0)
     pony (1.13.1)
       mail (>= 2.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (5.0.3)
-    rack (3.0.8)
+    public_suffix (6.0.1)
+    rack (3.1.7)
     rack-test (2.1.0)
       rack (>= 1.3)
     rake (10.5.0)
     rdf (1.0.8)
       addressable (>= 2.2)
-    redis (5.0.8)
-      redis-client (>= 0.17.0)
-    redis-client (0.18.0)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.2)
       connection_pool
+    request_store (1.7.0)
+      rack (>= 1.4)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.6)
-    rsolr (2.5.0)
+    rexml (3.3.8)
+    rsolr (2.6.0)
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
     ruby-xxHash (0.4.0.2)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -154,28 +162,22 @@ GEM
     simplecov-cobertura (2.1.0)
       rexml
       simplecov (~> 0.19)
-    simplecov-html (0.12.3)
+    simplecov-html (0.13.1)
     simplecov_json_formatter (0.1.4)
     systemu (2.6.5)
     thread_safe (0.3.6)
-    timeout (0.4.0)
+    timeout (0.4.1)
     tzinfo (0.3.62)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.8.2)
+    uri (0.13.1)
     uuid (2.3.9)
       macaddr (~> 1.0)
 
 PLATFORMS
   aarch64-linux
-  arm64-darwin-22
-  x86_64-darwin-18
-  x86_64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   cube-ruby
-  faraday (~> 2.0)
+  faraday
   ffi
   goo!
   minitest (~> 4.0)
@@ -190,4 +192,4 @@ DEPENDENCIES
   sparql-client!
 
 BUNDLED WITH
-   2.3.15
+   2.5.21
