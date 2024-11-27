@@ -35,7 +35,7 @@ class TestSpecializationEvaluator < TestCase
 
   def test_get_number_of_classes
     assert_equal(810, @@specialization_evaluator.send(:get_number_of_classes, 'MCCLTEST-0'))
-    assert_equal(486, @@specialization_evaluator.send(:get_number_of_classes, 'BROTEST-0'))
+    assert_equal(487, @@specialization_evaluator.send(:get_number_of_classes, 'BROTEST-0'))
     assert_equal(436, @@specialization_evaluator.send(:get_number_of_classes, 'ONTOMATEST-0'))
   end
 
