@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: 35721855ba808517698d8b94eb38d4553001c4b6
-  branch: develop
+  revision: 39f67ab7fae7675b6ff417ace0ab923e40ffcbcd
+  branch: master
   specs:
     goo (0.0.2)
       addressable (~> 2.8)
@@ -16,8 +16,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: 11838eb3d3c66bfcbc0fcbd2081e776da121fb8c
-  branch: develop
+  revision: 95da15aad0168200703c0306c6bd714dc06f4d3d
+  branch: master
   specs:
     ncbo_annotator (0.0.1)
       goo
@@ -27,8 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 6389fa2052e06ff8e21c64fd1be0030beca4c828
-  branch: develop
+  revision: 536cbe5cef9e23abc299ed44942c0b3966f9c18d
+  branch: master
   specs:
     ontologies_linked_data (0.0.1)
       activesupport
@@ -47,8 +47,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/sparql-client.git
-  revision: 1657f0dd69fd4b522d3549a6848670175f5e98cc
-  branch: develop
+  revision: e89c26aa96f184dbe9b52d51e04fb3d9ba998dbc
+  branch: master
   specs:
     sparql-client (1.0.1)
       json_pure (>= 1.4)
@@ -83,6 +83,8 @@ GEM
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
     ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     http-accept (1.7.0)
     http-cookie (1.0.7)
       domain_name (~> 0.5)
@@ -174,6 +176,8 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   cube-ruby
@@ -192,4 +196,4 @@ DEPENDENCIES
   sparql-client!
 
 BUNDLED WITH
-   2.5.21
+   2.5.20
