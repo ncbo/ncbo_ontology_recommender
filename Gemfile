@@ -1,11 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'cube-ruby'
-gem 'faraday'
-gem 'ffi'
 gem 'oj', '~> 3.0'
 gem 'rake', '~> 10.0'
-gem 'redis'
 
 # NCBO
 gem 'goo', github: 'ncbo/goo', branch: 'develop'
