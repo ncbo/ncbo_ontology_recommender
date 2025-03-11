@@ -11,3 +11,4 @@ tmp/*
 # Editor temp files
 *.swp
 *.swo
+coverage
