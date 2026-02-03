@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: 9cdb46a6b94c1bedb7a4dbab456888459217b7be
-  branch: chore/ruby3.2-rdf3-compat
+  revision: 30ae1929a038650fb5685b075d960ff8a4a96dba
+  branch: chore/ruby3.2-minitest6-compat
   specs:
     ncbo_annotator (0.0.1)
       goo
