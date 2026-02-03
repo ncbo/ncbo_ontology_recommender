@@ -39,10 +39,9 @@ unless LinkedData.settings.goo_host.match(safe_host) &&
   $stdout.flush
 end
 
-require 'minitest/unit'
-MiniTest::Unit.autorun
+require 'minitest/autorun'
 
-class RecommenderUnit < MiniTest::Unit
+class RecommenderUnit
   ANALYTICS_DATA = {
     'BROTEST-0' => {
       2013 => {
@@ -85,12 +84,15 @@ class RecommenderUnit < MiniTest::Unit
     'ONTOMATEST-0' => { bioportalScore: 0.443, umlsScore: 1.0 }
   }.freeze
 
-  def self.ontologies
-    @@ontologies
+  class << self
+    attr_accessor :ontologies
   end
 
-  # Code to run before the very first test
-  def before_suites
+  def self.setup_once
+    return if @setup_done
+
+    @setup_done = true
+    # code to run before the very first test
     LinkedData::SampleData::Ontology.delete_ontologies_and_submissions
     @@ontologies = LinkedData::SampleData::Ontology.sample_owl_ontologies(process_submission: true)
     @@sty = LinkedData::SampleData::Ontology.load_semantic_types_ontology
@@ -101,30 +103,31 @@ class RecommenderUnit < MiniTest::Unit
     # Ontology analytics data
     annotator.redis.set('ontology_analytics', Marshal.dump(ANALYTICS_DATA))
     annotator.redis.set('ontology_rank', Marshal.dump(ONTOLOGY_RANK_DATA))
-  end
 
-  def after_suites
-    # code to run after the very last test
-    LinkedData::SampleData::Ontology.delete_ontologies_and_submissions
-  end
-
-  def _run_suites(suites, type)
-    before_suites
-    super(suites, type)
-  ensure
-    after_suites
-  end
-
-  def _run_suite(suite, type)
-    suite.before_suite if suite.respond_to?(:before_suite)
-    super(suite, type)
-  ensure
-    suite.after_suite if suite.respond_to?(:after_suite)
+    Minitest::Runnable.runnables.each do |suite|
+      suite.before_suite if suite.respond_to?(:before_suite)
+    end
   end
 end
-MiniTest::Unit.runner = RecommenderUnit.new
 
-#
+module RecommenderTestSetup
+  def before_setup
+    RecommenderUnit.setup_once
+    super
+  end
+end
+
+Minitest::Test.prepend(RecommenderTestSetup)
+
+Minitest.after_run do
+  Minitest::Runnable.runnables.each do |suite|
+    suite.after_suite if suite.respond_to?(:after_suite)
+  end
+
+  # code to run after the very last test
+  LinkedData::SampleData::Ontology.delete_ontologies_and_submissions
+end
+
 # Base test class. Put shared test methods or setup here.
-class TestCase < MiniTest::Unit::TestCase
+class TestCase < Minitest::Test
 end

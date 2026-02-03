@@ -1,18 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'cube-ruby'
 gem 'oj', '~> 3.0'
-gem 'rake', '~> 10.0'
+gem 'rake'
+gem 'request_store'
+gem 'parallel'
 
 # NCBO
-gem 'goo', github: 'ncbo/goo', branch: 'develop'
-gem 'ncbo_annotator', github: 'ncbo/ncbo_annotator', branch: 'develop'
-gem 'ontologies_linked_data', github: 'ncbo/ontologies_linked_data', branch: 'develop'
-gem 'sparql-client', github: 'ncbo/sparql-client', tag: 'v6.3.0'
+gem 'goo', github: 'ncbo/goo', branch: 'ontoportal-lirmm-development'
+gem 'ncbo_annotator', github: 'ncbo/ncbo_annotator', branch: 'chore/ruby3.2-rdf3-compat'
+gem 'ontologies_linked_data', github: 'ncbo/ontologies_linked_data', branch: 'chore/ontoportal-lirmm-goo-compat'
+gem 'sparql-client', github: 'ncbo/sparql-client', branch: 'ontoportal-lirmm-development'
 
 group :development do
   gem 'simplecov'
   gem 'simplecov-cobertura' # for codecov.io
-  gem 'minitest', '~> 4.0'
+  gem 'minitest'
   gem 'pry'
 end
