@@ -1,8 +1,3 @@
-require 'ontologies_linked_data'
-require 'ncbo_annotator'
-require_relative '../lib/ncbo_ontology_recommender'
-require_relative '../config/config'
-
 if ENV['COVERAGE'] == 'true' || ENV['CI'] == 'true'
   require 'simplecov'
   require 'simplecov-cobertura'
@@ -19,6 +14,11 @@ if ENV['COVERAGE'] == 'true' || ENV['CI'] == 'true'
     add_filter '/config/'
   end
 end
+
+require 'ontologies_linked_data'
+require 'ncbo_annotator'
+require_relative '../lib/ncbo_ontology_recommender'
+require_relative '../config/config'
 
 # Check to make sure you want to run if not pointed at localhost
 safe_host = Regexp.new(/localhost|-ut/)
