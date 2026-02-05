@@ -3,7 +3,7 @@ x-app: &app
   build:
     context: .
     args:
-      RUBY_VERSION: '3.1'
+      RUBY_VERSION: '3.2'
   environment: &env
     # default bundle config resolves to /.bundle inside of the container
     # we are setting it to local app directory if we need to use 'bundle config local'
