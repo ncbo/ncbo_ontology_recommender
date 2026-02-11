@@ -4,6 +4,8 @@ gem 'oj', '~> 3.0'
 gem 'rake'
 gem 'request_store'
 gem 'parallel'
+gem 'json-ld'
+gem 'jwt'
 
 # NCBO
 gem 'goo', github: 'ncbo/goo', branch: 'ontoportal-lirmm-development'

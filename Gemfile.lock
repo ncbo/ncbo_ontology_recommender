@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: e4be8480530700a6a1bd165b03cc6a331a029077
+  revision: e86ece03c2d80604cdea4d96bd1de6899f6b4762
   branch: chore/ruby3.2-minitest6-compat
   specs:
     ncbo_annotator (0.0.1)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: b731028f1a6781ff2254238486c5b057c39f4596
+  revision: 3204c0a830d344eb9ae1db82c22b46be1ef468b3
   branch: chore/ontoportal-lirmm-goo-compat
   specs:
     ontologies_linked_data (0.0.1)
@@ -90,7 +90,7 @@ GEM
     down (5.4.2)
       addressable (~> 2.8)
     drb (2.2.3)
-    faraday (2.14.0)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -107,6 +107,17 @@ GEM
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
     json (2.18.1)
+    json-canonicalization (1.0.0)
+    json-ld (3.3.2)
+      htmlentities (~> 4.3)
+      json-canonicalization (~> 1.0)
+      link_header (~> 0.0, >= 0.0.8)
+      multi_json (~> 1.15)
+      rack (>= 2.2, < 4)
+      rdf (~> 3.3)
+      rexml (~> 3.2)
+    jwt (3.1.2)
+      base64
     libxml-ruby (5.0.5)
     link_header (0.0.8)
     logger (1.7.0)
@@ -144,7 +155,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     netrc (0.11.0)
-    oj (3.16.13)
+    oj (3.16.15)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     omni_logger (0.1.4)
@@ -232,6 +243,8 @@ PLATFORMS
 
 DEPENDENCIES
   goo!
+  json-ld
+  jwt
   minitest
   ncbo_annotator!
   oj (~> 3.0)
