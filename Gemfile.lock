@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/alexskr/ontoportal_testkit.git
+  revision: 5138aa94c028ec97adeaf1f7a5ed9f1c40b12950
+  branch: main
+  specs:
+    ontoportal_testkit (0.1.0)
+      rake (>= 13.0)
+
+GIT
   remote: https://github.com/ncbo/goo.git
   revision: 13a8559a2346cc8320d7d36046646907bfa8a27c
   branch: ontoportal-lirmm-development
@@ -239,6 +247,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
+  arm64-darwin-24
   x86_64-linux
 
 DEPENDENCIES
@@ -249,6 +258,7 @@ DEPENDENCIES
   ncbo_annotator!
   oj (~> 3.0)
   ontologies_linked_data!
+  ontoportal_testkit!
   parallel
   pry
   rake
