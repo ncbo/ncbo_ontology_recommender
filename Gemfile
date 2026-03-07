@@ -14,8 +14,9 @@ gem 'ontologies_linked_data', github: 'ncbo/ontologies_linked_data', branch: 'ch
 gem 'sparql-client', github: 'ncbo/sparql-client', branch: 'ontoportal-lirmm-development'
 
 group :development do
-  gem 'simplecov'
-  gem 'simplecov-cobertura' # for codecov.io
+  gem 'ontoportal_testkit', github: 'alexskr/ontoportal_testkit', branch: 'main'
   gem 'minitest'
   gem 'pry'
+  gem 'simplecov'
+  gem 'simplecov-cobertura' # for codecov.io
 end
