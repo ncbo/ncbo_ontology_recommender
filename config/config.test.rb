@@ -15,8 +15,7 @@ REDIS_HOST       = ENV.include?("REDIS_HOST")       ? ENV["REDIS_HOST"]       : 
 REDIS_PORT       = ENV.include?("REDIS_PORT")       ? ENV["REDIS_PORT"]       : 6379
 MGREP_HOST       = ENV.include?('MGREP_HOST')       ? ENV['MGREP_HOST']       : 'localhost'
 MGREP_PORT       = ENV.include?('MGREP_PORT')       ? ENV['MGREP_PORT']       : 55556
-SOLR_TERM_SEARCH_URL = ENV.include?("SOLR_TERM_SEARCH_URL") ? ENV["SOLR_TERM_SEARCH_URL"] : "http://localhost:8983/solr/term_search_core1"
-SOLR_PROP_SEARCH_URL = ENV.include?("SOLR_PROP_SEARCH_URL") ? ENV["SOLR_PROP_SEARCH_URL"] : "http://localhost:8983/solr/prop_search_core1"
+SEARCH_SERVER_URL = ENV.include?('SEARCH_SERVER_URL') ? ENV['SEARCH_SERVER_URL'] : 'http://localhost:8983/solr'
 
 LinkedData.config do |config|
   config.goo_backend_name              = GOO_BACKEND_NAME.to_s
@@ -31,8 +30,8 @@ LinkedData.config do |config|
   config.http_redis_port               = REDIS_PORT.to_i
   config.ontology_analytics_redis_host = REDIS_HOST.to_s
   config.ontology_analytics_redis_port = REDIS_PORT.to_i
-  config.search_server_url             = SOLR_TERM_SEARCH_URL.to_s
-  config.property_search_server_url    = SOLR_PROP_SEARCH_URL.to_s
+  config.search_server_url             = SEARCH_SERVER_URL.to_s
+  config.property_search_server_url    = SEARCH_SERVER_URL.to_s
 end
 
 Annotator.config do |config|

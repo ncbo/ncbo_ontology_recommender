@@ -11,9 +11,6 @@ module OntologyRecommender
 
   def config(&block)
     return if @settings_run
-    @settings_run = true
-
-    yield @settings if block_given?
 
     # Set defaults
     @settings.input_type ||= 1
@@ -41,6 +38,9 @@ module OntologyRecommender
     @settings.max_elements_set ||= 3
     @settings.max_results_single ||= 25
     @settings.max_results_sets ||= 25
+
+    yield @settings if block_given?
+    @settings_run = true
   end
 
 end
