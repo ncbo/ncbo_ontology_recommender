@@ -94,7 +94,10 @@ class RecommenderUnit
     @setup_done = true
     # code to run before the very first test
     LinkedData::SampleData::Ontology.delete_ontologies_and_submissions
-    @@ontologies = LinkedData::SampleData::Ontology.sample_owl_ontologies(process_submission: true)
+    @@ontologies = LinkedData::SampleData::Ontology.sample_owl_ontologies(
+      process_submission: true,
+      process_options: { process_rdf: true, extract_metadata: false, index_search: false, run_metrics: true }
+    )
     @@sty = LinkedData::SampleData::Ontology.load_semantic_types_ontology
     annotator = Annotator::Models::NcboAnnotator.new
     annotator.init_redis_for_tests
