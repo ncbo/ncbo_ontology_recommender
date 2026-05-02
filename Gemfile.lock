@@ -26,8 +26,8 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: b216bdde2de471fc0f851556ffa2327333516e79
-  branch: master
+  revision: eedf4e6c642cd8b014ba37c13824b4423a0bddfa
+  branch: develop
   specs:
     ncbo_annotator (0.0.1)
       goo
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 25b2776dfd71e3ca329ced716760cfaf8ef3bc9a
+  revision: cdbf8f6990f10181f3efa11afada051a8283978e
   branch: develop
   specs:
     ontologies_linked_data (0.0.1)
@@ -60,7 +60,7 @@ GIT
 GIT
   remote: https://github.com/ncbo/sparql-client.git
   revision: 2ac20b217bb7ad2b11305befe0ee77d75e44eac5
-  branch: main
+  branch: development
   specs:
     sparql-client (3.2.2)
       net-http-persistent (~> 4.0, >= 4.0.2)
@@ -95,7 +95,7 @@ GEM
     date (3.5.1)
     docile (1.4.1)
     domain_name (0.6.20240107)
-    down (5.5.0)
+    down (5.6.0)
       addressable (~> 2.8)
       base64 (~> 0.3)
     drb (2.2.3)
@@ -144,7 +144,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2026.0414)
     mini_mime (1.1.5)
-    minitest (6.0.5)
+    minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
     multi_json (1.20.1)
@@ -155,7 +155,7 @@ GEM
       uri (>= 0.11.1)
     net-http-persistent (4.0.8)
       connection_pool (>= 2.2.4, < 4)
-    net-imap (0.6.3)
+    net-imap (0.6.4)
       date
       net-protocol
     net-pop (0.1.2)
