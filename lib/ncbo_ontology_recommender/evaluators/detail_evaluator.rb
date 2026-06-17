@@ -36,7 +36,7 @@ module OntologyRecommender
         detail_score_syns = sum_syns.to_f / best_annotations_ont.size.to_f
         detail_score_props = sum_props.to_f / best_annotations_ont.size.to_f
         detail_score = (detail_score_defs + detail_score_syns + detail_score_props).to_f / 3.to_f
-        return OntologyRecommender::Evaluators::DetailResult.new(detail_score.round(3), detail_score_defs.round(3),
+        OntologyRecommender::Evaluators::DetailResult.new(detail_score.round(3), detail_score_defs.round(3),
                                                                  detail_score_syns.round(3), detail_score_props.round(3))
       end
 
@@ -65,7 +65,7 @@ module OntologyRecommender
             [(defined? cls.definition) != nil ? cls.definition.size : 0,
              (defined? cls.synonym) != nil ? cls.synonym.size : 0,
              (defined? cls.property) != nil ? cls.property.size : 0] }
-        return hash
+        hash
       end
 
       # Computes the detail score for a specific feature (e.f. definitions, synonyms, properties) (range [0,1])
@@ -89,7 +89,7 @@ module OntologyRecommender
         get_edismax_query("avoid_search_mangling", params)
         params.delete("ontology_acronyms")
         params["qf"] = "resource_id"
-        params["fq"] << " AND #{get_quoted_field_query_param(class_ids, "OR", "resource_id")}"
+        params["fq"] << " AND #{get_terms_field_query_param(class_ids, "resource_id")}"
         params["rows"] = 99999
         # Replace fake query with wildcard
         resp = LinkedData::Models::Class.search("*:*", params)
@@ -107,28 +107,21 @@ module OntologyRecommender
           doc[:properties] = MultiJson.load(doc.delete(:propertyRaw))
           populated_classes << LinkedData::Models::Class.read_only(doc)
         end
-        return populated_classes
+        populated_classes
       end
 
       private
-      def get_quoted_field_query_param(words, clause, fieldName="")
-        query = fieldName.empty? ? "" : "#{fieldName}:"
-        if (words.length > 1)
-          query << "("
+
+      def get_terms_field_query_param(values, field_name)
+        return "" if values.nil? || values.empty?
+
+        escaped_values = values.map do |value|
+          value.to_s.gsub('\\', '\\\\\\').gsub(',', '\\,').gsub('"', '\\"')
         end
-        query << "\"#{words[0]}\""
-        if (words.length > 1)
-          words[1..-1].each do |word|
-            query << " #{clause} \"#{word}\""
-          end
-        end
-        if (words.length > 1)
-          query << ")"
-        end
-        return query
+
+        "_query_:\"{!terms f=#{field_name}}#{escaped_values.join(',')}\""
       end
 
-      private
       def get_edismax_query(text, params={})
         params["defType"] = "edismax"
         params["stopwords"] = "true"
@@ -141,10 +134,10 @@ module OntologyRecommender
         end
         params["qf"] = "resource_id^100"
         acronyms = params["ontology_acronyms"] || restricted_ontologies_to_acronyms(params)
-        filter_query = get_quoted_field_query_param(acronyms, "OR", "submissionAcronym")
+        filter_query = get_terms_field_query_param(acronyms, "submissionAcronym")
         params["fq"] = filter_query
         params["q"] = query
-        return query
+        query
       end
 
       # see https://github.com/rsolr/rsolr/issues/101
