@@ -14,6 +14,16 @@ class TestSpecializationEvaluator < TestCase
   def self.after_suite
   end
 
+  def test_terms_filter_does_not_emit_boolean_clauses_for_large_value_sets
+    ids = (1..1100).map { |i| "http://example.org/classes/#{i}" }
+    query = @@detail_evaluator.send(:get_terms_field_query_param, ids, "resource_id")
+
+    assert_match(/\A_query_:"\{!terms f=resource_id\}/, query)
+    assert(query.include?(ids.first))
+    assert(query.include?(ids.last))
+    refute_match(/\bOR\b/, query)
+  end
+
   def test_evaluate
     input = 'article, hormone antagonists, software, activity'
     input_type = 2
