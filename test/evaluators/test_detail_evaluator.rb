@@ -15,8 +15,9 @@ class TestSpecializationEvaluator < TestCase
   end
 
   def test_terms_filter_does_not_emit_boolean_clauses_for_large_value_sets
+    detail_evaluator = OntologyRecommender::Evaluators::DetailEvaluator.new(1, 1, 1)
     ids = (1..1100).map { |i| "http://example.org/classes/#{i}" }
-    query = @@detail_evaluator.send(:get_terms_field_query_param, ids, "resource_id")
+    query = detail_evaluator.send(:get_terms_field_query_param, ids, "resource_id")
 
     assert_match(/\A_query_:"\{!terms f=resource_id\}/, query)
     assert(query.include?(ids.first))
