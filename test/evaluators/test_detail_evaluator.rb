@@ -27,7 +27,6 @@ class TestSpecializationEvaluator < TestCase
     result1 = @@detail_evaluator.evaluate(annotations_all_hash, annotations_all_hash['MCCLTEST-0'])
     result2 = @@detail_evaluator.evaluate(annotations_all_hash, annotations_all_hash['ONTOMATEST-0'])
     result3 = @@detail_evaluator.evaluate(annotations_all_hash, annotations_all_hash['BROTEST-0'])
-    binding.pry
     assert(result1.propertiesScore > 0 && result2.propertiesScore > 0 && result3.propertiesScore > 0)
     assert_equal(0, result1.definitionsScore)
     assert_equal(0, result2.definitionsScore)
