@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: 137af25608de38c6605e163c24d195c64059d41d
+  revision: cc806c845c79b707e7a10f44e4959caa15939b8b
   branch: development
   specs:
     goo (0.0.2)
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 752e7dfeea06fa91e076447acb9dbd8420894523
+  revision: a8a8dfbdae0907d9eb9dc2b06817a359296c7196
   branch: develop
   specs:
     ontologies_linked_data (0.0.1)
@@ -48,12 +48,10 @@ GIT
       json
       libxml-ruby
       multi_json
-      net-ftp
       oj
       omni_logger
       pony
       rack
-      rack-test
       rsolr
       rubyzip (~> 3.0)
 
@@ -148,9 +146,6 @@ GEM
       drb (~> 2.0)
       prism (~> 1.5)
     multi_json (1.20.1)
-    net-ftp (0.3.9)
-      net-protocol
-      time
     net-http (0.9.1)
       uri (>= 0.11.1)
     net-http-persistent (4.0.8)
@@ -181,8 +176,6 @@ GEM
       reline (>= 0.6.0)
     public_suffix (7.0.5)
     rack (3.2.6)
-    rack-test (2.2.0)
-      rack (>= 1.3)
     rake (13.4.2)
     rdf (3.3.4)
       bcp47_spec (~> 0.2)
@@ -236,8 +229,6 @@ GEM
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
     systemu (2.6.5)
-    time (0.4.2)
-      date
     timeout (0.6.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
