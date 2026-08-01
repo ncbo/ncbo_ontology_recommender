@@ -11,7 +11,6 @@ gem 'jwt'
 gem 'goo', github: 'ncbo/goo', branch: 'main'
 gem 'ncbo_annotator', github: 'ncbo/ncbo_annotator', branch: 'master'
 gem 'ontologies_linked_data', github: 'ncbo/ontologies_linked_data', branch: 'master'
-gem 'sparql-client', github: 'ncbo/sparql-client', branch: 'main'
 
 group :development do
   gem 'ontoportal_testkit', github: 'alexskr/ontoportal_testkit', branch: 'main'
