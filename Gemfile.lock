@@ -8,10 +8,11 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: ad6754030591968998e4fa1be6adaf6268f5e3b3
+  revision: d70726c320cc0b8eb13d9848b654e204ef6f7d69
   branch: main
   specs:
     goo (0.0.2)
+      activesupport
       addressable (~> 2.8)
       pry
       rdf
@@ -19,14 +20,16 @@ GIT
       rdf-rdfxml
       rdf-vocab
       redis
+      request_store
       rest-client
       rsolr
       sparql-client (= 3.2.2)
+      stoplight (~> 5.0)
       uuid
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: fa40131df0305b39eb75a62bea49e37014b51e42
+  revision: 020f8a7d535275d36d8c70fcfe1ddf965691b1f5
   branch: master
   specs:
     ncbo_annotator (0.0.1)
@@ -37,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 8209e6c3bc19550bfdd3f5a38d2cb5ea253de6b6
+  revision: 07c4728b7a1cddd300a4dd8da0a6c3780700c737
   branch: master
   specs:
     ontologies_linked_data (0.0.1)
@@ -58,7 +61,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (8.1.3)
+    activesupport (8.1.3.1)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.3.1)
@@ -104,7 +107,7 @@ GEM
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
-    json (2.21.1)
+    json (2.21.2)
     json-canonicalization (1.0.0)
     json-ld (3.3.2)
       htmlentities (~> 4.3)
@@ -151,7 +154,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     netrc (0.11.0)
-    oj (3.17.4)
+    oj (3.17.5)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     omni_logger (0.1.4)
@@ -190,8 +193,8 @@ GEM
       rexml (~> 3.2)
     readline (0.0.4)
       reline
-    redis (5.4.1)
-      redis-client (>= 0.22.0)
+    redis (6.0.0)
+      redis-client (= 0.30.1)
     redis-client (0.30.1)
       connection_pool
     reline (0.6.3)
@@ -222,6 +225,9 @@ GEM
     sparql-client (3.2.2)
       net-http-persistent (~> 4.0, >= 4.0.2)
       rdf (~> 3.2, >= 3.2.11)
+    stoplight (5.8.2)
+      concurrent-ruby
+      zeitwerk
     systemu (2.6.5)
     timeout (0.6.1)
     tzinfo (2.0.6)
@@ -229,6 +235,7 @@ GEM
     uri (1.1.1)
     uuid (2.3.9)
       macaddr (~> 1.0)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   aarch64-linux
