@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alexskr/ontoportal_testkit.git
-  revision: 9ab7d115e82bfb4c1e339ea9132aa31e5b07726e
+  revision: 1f5bf12503350a7ba0b50e368908ae95bd00fff2
   branch: main
   specs:
     ontoportal_testkit (0.1.0)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: d70726c320cc0b8eb13d9848b654e204ef6f7d69
+  revision: c56f3d67e2c4d1280cd510caf84b7a1e2e93f450
   branch: main
   specs:
     goo (0.0.2)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: 020f8a7d535275d36d8c70fcfe1ddf965691b1f5
+  revision: 74b6a8b1c4ca879aa506b6d34ac6877713e675eb
   branch: master
   specs:
     ncbo_annotator (0.0.1)
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 07c4728b7a1cddd300a4dd8da0a6c3780700c737
+  revision: 59f630f4bca589031244fde3995079c674e51aee
   branch: master
   specs:
     ontologies_linked_data (0.0.1)
@@ -85,7 +85,6 @@ GEM
     concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
     date (3.5.1)
-    docile (1.4.1)
     domain_name (0.6.20240107)
     down (5.6.0)
       addressable (~> 2.8)
@@ -97,16 +96,14 @@ GEM
       logger
     faraday-net_http (3.4.4)
       net-http (~> 0.5)
-    ffi (1.17.4-aarch64-linux-gnu)
     ffi (1.17.4-arm64-darwin)
-    ffi (1.17.4-x86_64-linux-gnu)
     htmlentities (4.4.2)
     http-accept (1.7.0)
     http-cookie (1.1.6)
       domain_name (~> 0.5)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    io-console (0.8.2)
+    io-console (0.9.2)
     json (2.21.2)
     json-canonicalization (1.0.0)
     json-ld (3.3.2)
@@ -117,7 +114,7 @@ GEM
       rack (>= 2.2, < 4)
       rdf (~> 3.3)
       rexml (~> 3.2)
-    jwt (3.1.2)
+    jwt (3.2.0)
       base64
     libxml-ruby (6.0.0)
     link_header (0.0.8)
@@ -154,7 +151,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     netrc (0.11.0)
-    oj (3.17.5)
+    oj (3.17.6)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     omni_logger (0.1.4)
@@ -169,7 +166,7 @@ GEM
       method_source (~> 1.0)
       reline (>= 0.6.0)
     public_suffix (7.0.5)
-    rack (3.2.6)
+    rack (3.2.7)
     rake (13.4.2)
     rdf (3.3.4)
       bcp47_spec (~> 0.2)
@@ -197,7 +194,7 @@ GEM
       redis-client (= 0.30.1)
     redis-client (0.30.1)
       connection_pool
-    reline (0.6.3)
+    reline (0.7.0)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -211,21 +208,16 @@ GEM
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
     ruby-xxHash (0.4.0.2)
-    rubyzip (3.4.1)
+    rubyzip (3.5.0)
     securerandom (0.4.1)
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-cobertura (3.1.0)
+    simplecov (1.1.1)
+    simplecov-cobertura (4.0.0)
       rexml
-      simplecov (~> 0.19)
-    simplecov-html (0.13.2)
-    simplecov_json_formatter (0.1.4)
+      simplecov (~> 1.0)
     sparql-client (3.2.2)
       net-http-persistent (~> 4.0, >= 4.0.2)
       rdf (~> 3.2, >= 3.2.11)
-    stoplight (5.8.2)
+    stoplight (5.8.3)
       concurrent-ruby
       zeitwerk
     systemu (2.6.5)
@@ -238,11 +230,7 @@ GEM
     zeitwerk (2.8.3)
 
 PLATFORMS
-  aarch64-linux
-  arm64-darwin-22
-  arm64-darwin-23
   arm64-darwin-24
-  x86_64-linux
 
 DEPENDENCIES
   goo!
