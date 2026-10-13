@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alexskr/ontoportal_testkit.git
-  revision: 9ab7d115e82bfb4c1e339ea9132aa31e5b07726e
+  revision: 1f5bf12503350a7ba0b50e368908ae95bd00fff2
   branch: main
   specs:
     ontoportal_testkit (0.1.0)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/goo.git
-  revision: 031e976ac5bd8863a57d1af207de10c5f2d11d80
+  revision: abc18c8bc30ec6ae3f2fede2e03914c5e2a5f0a3
   branch: development
   specs:
     goo (0.0.2)
@@ -22,14 +22,14 @@ GIT
       redis
       request_store
       rest-client
-      rsolr
+      rsolr (>= 2.6.0)
       sparql-client (= 3.2.2)
       stoplight (~> 5.0)
       uuid
 
 GIT
   remote: https://github.com/ncbo/ncbo_annotator.git
-  revision: d3c3ed300b93fc231c714a4166e33248710bff9f
+  revision: eec3b42e2a6812ec25957b4db49fddc95d17ca4d
   branch: develop
   specs:
     ncbo_annotator (0.0.1)
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: 93cd8e1c180ad8edafd9586d4df80970f44644b8
+  revision: 726cdb924733591f090f4ccd62be63c2e336454e
   branch: develop
   specs:
     ontologies_linked_data (0.0.1)
@@ -61,7 +61,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (8.1.3.1)
+    activesupport (8.1.4)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.3.1)
@@ -84,14 +84,13 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
-    date (3.5.1)
-    docile (1.4.1)
-    domain_name (0.6.20240107)
+    date (3.6.0)
+    domain_name (0.6.20260921)
     down (5.6.0)
       addressable (~> 2.8)
       base64 (~> 0.3)
     drb (2.2.3)
-    faraday (2.14.3)
+    faraday (2.14.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -106,8 +105,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    io-console (0.9.2)
-    json (2.21.2)
+    io-console (0.9.4)
+    json (3.0.2)
     json-canonicalization (1.0.0)
     json-ld (3.3.2)
       htmlentities (~> 4.3)
@@ -117,7 +116,7 @@ GEM
       rack (>= 2.2, < 4)
       rdf (~> 3.3)
       rexml (~> 3.2)
-    jwt (3.1.2)
+    jwt (3.3.0)
       base64
     libxml-ruby (6.0.0)
     link_header (0.0.8)
@@ -134,27 +133,28 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0701)
+    mime-types-data (3.2026.1006)
     mini_mime (1.1.5)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    multi_json (1.21.1)
-    net-http (0.9.1)
+    multi_json (1.21.2)
+    net-http (0.10.0)
+      net-protocol (>= 0.3.0)
       uri (>= 0.11.1)
     net-http-persistent (4.0.8)
       connection_pool (>= 2.2.4, < 4)
-    net-imap (0.6.6)
+    net-imap (0.6.8)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.4.0)
       timeout
-    net-smtp (0.5.1)
+    net-smtp (0.5.2)
       net-protocol
     netrc (0.11.0)
-    oj (3.17.6)
+    oj (3.17.7)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     omni_logger (0.1.4)
@@ -207,21 +207,16 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.4.4)
-    rsolr (2.6.0)
+    rsolr (3.0.0)
       builder (>= 2.1.2)
-      faraday (>= 0.9, < 3, != 2.0.0)
+      faraday (>= 1.0, < 3)
     ruby-xxHash (0.4.0.2)
-    rubyzip (3.5.0)
+    rubyzip (3.7.0)
     securerandom (0.4.1)
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-cobertura (3.1.0)
+    simplecov (1.2.0)
+    simplecov-cobertura (4.0.0)
       rexml
-      simplecov (~> 0.19)
-    simplecov-html (0.13.2)
-    simplecov_json_formatter (0.1.4)
+      simplecov (~> 1.0)
     sparql-client (3.2.2)
       net-http-persistent (~> 4.0, >= 4.0.2)
       rdf (~> 3.2, >= 3.2.11)
@@ -232,7 +227,7 @@ GEM
     timeout (0.6.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (1.1.1)
+    uri (1.1.2)
     uuid (2.3.9)
       macaddr (~> 1.0)
     zeitwerk (2.8.3)
